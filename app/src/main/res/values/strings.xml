@@ -2,5 +2,7 @@
     <string name="app_name">SortingExercise</string>
     <string name="title_item_detail">Item Detail</string>
 
-    <string name="fragment_detail_random_array">Random Array</string>
+    <string name="fragment_detail_random_array">Generate Random Array</string>
+
+    <string name="menu_item_setting">Setting</string>
 </resources>

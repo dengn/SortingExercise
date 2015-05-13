@@ -34,4 +34,22 @@ public class RandomUtils {
         }
         return result;
     }
+
+
+    /**
+     *
+     * @param array input Random Array
+     * @return String of this Array
+     */
+    public static String getRandomArrayString(int[] array){
+        StringBuilder randomArrayStringBuilder = new StringBuilder();
+        randomArrayStringBuilder.append("{");
+        for(int i=0;i<array.length-1;i++){
+            randomArrayStringBuilder.append(String.valueOf(array[i]));
+            randomArrayStringBuilder.append(", ");
+        }
+        randomArrayStringBuilder.append(String.valueOf(array[array.length-1]));
+        randomArrayStringBuilder.append("}");
+        return randomArrayStringBuilder.toString();
+    }
 }
