@@ -97,7 +97,7 @@ public class ItemListActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id==R.id.setting){
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, ParametersActivity.class);
             startActivity(intent);
             return true;
         }

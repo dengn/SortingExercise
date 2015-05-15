@@ -5,4 +5,23 @@
     <string name="fragment_detail_random_array">Generate Random Array</string>
 
     <string name="menu_item_setting">Setting</string>
+    <string name="title_activity_parameters">ParametersActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string name="pref_parameter_default_min">0</string>
+    <string name="pref_parameter_min_name">MIN Value</string>
+
+    <string name="pref_parameter_default_max">100</string>
+    <string name="pref_parameter_max_name">MAX Value</string>
+
+    <string name="pref_parameter_default_number">10</string>
+    <string name="pref_parameter_number_name">MAX Value</string>
+
 </resources>

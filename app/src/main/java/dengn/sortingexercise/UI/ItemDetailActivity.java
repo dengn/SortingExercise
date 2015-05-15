@@ -76,7 +76,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             return true;
         }
         else if(id==R.id.setting){
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, ParametersActivity.class);
             startActivity(intent);
             return true;
         }

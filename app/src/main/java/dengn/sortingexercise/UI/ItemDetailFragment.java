@@ -3,6 +3,7 @@ package dengn.sortingexercise.UI;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,7 +132,10 @@ public class ItemDetailFragment extends Fragment {
         randomArrayGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                randomArrayValues = RandomUtils.randomCommon(Constant.RANDOM_MIN, Constant.RANDOM_MAX, Constant.RANDOM_NUMBER);
+                int randomMin = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("min_value", String.valueOf(Constant.RANDOM_MIN)));
+                int randomMax = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("max_value", String.valueOf(Constant.RANDOM_MAX)));
+                int arrayNumber = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("array_num", String.valueOf(Constant.RANDOM_NUMBER)));
+                randomArrayValues = RandomUtils.randomCommon(randomMin, randomMax, arrayNumber);
                 randomArray.setText(RandomUtils.getRandomArrayString(randomArrayValues));
             }
         });
