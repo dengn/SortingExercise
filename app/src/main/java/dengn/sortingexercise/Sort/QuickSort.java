@@ -9,7 +9,7 @@ import dengn.sortingexercise.models.SortResult;
  */
 public class QuickSort {
 
-    public static final SortResult QuickSort(int[] randomArray){
+    public static SortResult QuickSort(int[] randomArray){
 
         long startTime = SystemClock.elapsedRealtimeNanos();
 

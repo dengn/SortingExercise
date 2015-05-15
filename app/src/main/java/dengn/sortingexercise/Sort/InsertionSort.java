@@ -9,7 +9,7 @@ import dengn.sortingexercise.models.SortResult;
  */
 public class InsertionSort {
 
-    public static final SortResult InsertionSort(int[] randomArray){
+    public static SortResult InsertionSort(int[] randomArray){
 
         long startTime = SystemClock.elapsedRealtimeNanos();
 

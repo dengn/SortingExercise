@@ -1,5 +1,7 @@
 package dengn.sortingexercise.Sort;
 
+import android.os.SystemClock;
+
 import dengn.sortingexercise.models.SortResult;
 
 /**
@@ -7,8 +9,63 @@ import dengn.sortingexercise.models.SortResult;
  */
 public class MergeSort {
 
-    public static final SortResult MergeSort(int[] randomArray){
+    public static SortResult MergeSort(int[] randomArray) {
 
-        return new SortResult(randomArray, 0);
+        long startTime = SystemClock.elapsedRealtimeNanos();
+
+        randomArray = sort(randomArray, 0, randomArray.length - 1);
+        long endTime = SystemClock.elapsedRealtimeNanos();
+
+        return new SortResult(randomArray, endTime - startTime);
     }
+
+    private static int[] sort(int[] data, int left, int right) {
+
+        if (left < right) {
+            //找出中间索引
+            int center = (left + right) / 2;
+            //对左边数组进行递归
+            sort(data, left, center);
+            //对右边数组进行递归
+            sort(data, center + 1, right);
+            //合并
+            data = merge(data, left, center, right);
+        }
+        return data;
+
+    }
+
+    private static int[] merge(int[] data, int left, int center, int right) {
+
+        int[] tmpArr = new int[data.length];
+        int mid = center + 1;
+        //third记录中间数组的索引
+        int third = left;
+        int tmp = left;
+        while (left <= center && mid <= right) {
+            //从两个数组中取出最小的放入中间数组
+            if (data[left] <= data[mid]) {
+                tmpArr[third++] = data[left++];
+            } else {
+                tmpArr[third++] = data[mid++];
+            }
+
+        }
+
+        //剩余部分依次放入中间数组
+        while (mid <= right) {
+            tmpArr[third++] = data[mid++];
+        }
+
+        while (left <= center) {
+            tmpArr[third++] = data[left++];
+        }
+
+        //将中间数组中的内容复制回原数组
+        while (tmp <= right) {
+            data[tmp] = tmpArr[tmp++];
+        }
+        return data;
+    }
+
 }

@@ -9,7 +9,7 @@ import dengn.sortingexercise.models.SortResult;
  */
 public class ShellSort {
 
-    public static final SortResult ShellSort(int[] randomArray) {
+    public static SortResult ShellSort(int[] randomArray) {
 
         long startTime = SystemClock.elapsedRealtimeNanos();
 

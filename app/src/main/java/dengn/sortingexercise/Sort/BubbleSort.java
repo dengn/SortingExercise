@@ -9,7 +9,7 @@ import dengn.sortingexercise.models.SortResult;
  */
 public class BubbleSort {
 
-    public static final SortResult BubbleSort(int[] randomArray) {
+    public static SortResult BubbleSort(int[] randomArray) {
         long startTime = SystemClock.elapsedRealtimeNanos();
 
         for(int i=0;i<randomArray.length;i++){
