@@ -25,10 +25,6 @@
                 android:value=".UI.ItemListActivity" />
         </activity>
         <activity
-            android:name=".UI.SettingsActivity"
-            android:label="@string/title_activity_settings" >
-        </activity>
-        <activity
             android:name=".UI.ParametersActivity"
             android:label="@string/title_activity_parameters" >
         </activity>
