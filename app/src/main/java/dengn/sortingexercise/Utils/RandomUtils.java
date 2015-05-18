@@ -52,4 +52,34 @@ public class RandomUtils {
         randomArrayStringBuilder.append("}");
         return randomArrayStringBuilder.toString();
     }
+
+    /**
+     *
+     * @param number array number
+     * @param min setting min value
+     * @param max setting max value
+     * @return true if array number is smaller than MAX-MIN, otherwise false
+     */
+    public static boolean checkArrayNumberValid(int number, int min, int max){
+        return (max - min) > number;
+    }
+
+    /**
+     *
+     * @param min setting min value
+     * @param max setting max value
+     * @return true if max > min, otherwise false
+     */
+    public static boolean checkMinSmallerMax(int min, int max){
+        return min < max;
+    }
+
+    /**
+     *
+     * @param number input integer number
+     * @return check if number>0 && number<Integer.MAX_VALUE
+     */
+    public static boolean checkIntEdge(int number){
+        return number >= 0 && number < Integer.MAX_VALUE;
+    }
 }

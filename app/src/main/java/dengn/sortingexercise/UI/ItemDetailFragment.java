@@ -114,12 +114,10 @@ public class ItemDetailFragment extends Fragment {
         sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(randomArrayValues==null){
+                if(randomArrayValues==null)
                     Toast.makeText(context, "Please firstly generate Random Array", Toast.LENGTH_SHORT).show();
-                }
-                else if(randomArrayValues.length==0){
+                else if(randomArrayValues.length==0)
                     Toast.makeText(context, "Please firstly generate Random Array", Toast.LENGTH_SHORT).show();
-                }
                 else {
                     SortResult sortResult = sortFunction(id, randomArrayValues);
                     sortedArray.setText(RandomUtils.getRandomArrayString(sortResult.getArray()));
@@ -134,9 +132,20 @@ public class ItemDetailFragment extends Fragment {
             public void onClick(View v) {
                 int randomMin = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("min_value", String.valueOf(Constant.RANDOM_MIN)));
                 int randomMax = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("max_value", String.valueOf(Constant.RANDOM_MAX)));
-                int arrayNumber = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("array_num", String.valueOf(Constant.RANDOM_NUMBER)));
-                randomArrayValues = RandomUtils.randomCommon(randomMin, randomMax, arrayNumber);
-                randomArray.setText(RandomUtils.getRandomArrayString(randomArrayValues));
+                int arrayNumber = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("array_number", String.valueOf(Constant.RANDOM_NUMBER)));
+
+                if (!(RandomUtils.checkIntEdge(randomMin)&&RandomUtils.checkIntEdge(randomMax)&&RandomUtils.checkIntEdge(arrayNumber))){
+                    Toast.makeText(context, "Value too big, please reset value", Toast.LENGTH_SHORT).show();
+                }
+                else if(!RandomUtils.checkMinSmallerMax(randomMin, randomMax)){
+                    Toast.makeText(context, "Min value is bigger than Max value, please modify", Toast.LENGTH_SHORT).show();
+                }
+                else if(!RandomUtils.checkArrayNumberValid(arrayNumber, randomMin, randomMax)){
+                    Toast.makeText(context, "Array length too long, please modify", Toast.LENGTH_SHORT).show();
+                }else {
+                    randomArrayValues = RandomUtils.randomCommon(randomMin, randomMax, arrayNumber);
+                    randomArray.setText(RandomUtils.getRandomArrayString(randomArrayValues));
+                }
             }
         });
 
